@@ -1,4 +1,8 @@
 import { Component, EventEmitter, Input, Output, computed, input } from '@angular/core';
+import { DUMMY_USERS } from '../dummy-users';
+import { User } from './user.modal';
+
+
 @Component({
   selector: 'app-user',
   standalone: true,
@@ -13,17 +17,16 @@ export class UserComponent {
   // ImagePath = computed(() => {
   //   return 'assets/users/' + this.avatar()
   // })
-
-  @Input({ required: true }) avatar!: string
-  @Input({ required: true }) name!: string
-  @Input({ required: true }) id!: string
-  @Output() select = new EventEmitter()
+  @Input({ required: true }) user!: User
+  @Input({ required: true }) selected!: boolean
+  @Output() select = new EventEmitter<string>()
 
   get ImagePath() {
 
-    return 'assets/users/' + this.avatar
+    return 'assets/users/' + this.user.avatar
   }
   onSelectedUser() {
-    this.select.emit(this.id)
+    this.select.emit(this.user.id);
+
   }
 }
