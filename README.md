@@ -1,3 +1,5 @@
+making a simple task project there are diffrent users the user can add task , remove it  and store it in the local storage 
+
 # Essentials
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.2.
